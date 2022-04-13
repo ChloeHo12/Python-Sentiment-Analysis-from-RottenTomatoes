@@ -5,10 +5,11 @@ from functions import *
 train = open('training.txt')
 line = train.readline()
 
-print(getRevText(line))
+print(cleanText(line))
 
-assert getRevText('4 I laughed, I cried, it was better than cats.') == "I laughed, I cried, it was better than cats.", "Review Text should be 'I laughed, I cried, it was better than cats.'" == "I laughed, I cried, it was better than cats."
-assert getRevText('0 Two thumbs down.') == 'Two thumbs down.', "Review Text should be 'Two thumbs down.'"
-print("Success!") 
+assert cleanText('I lauGHed I CrieD')=='i laughed i cried', 'upper case letters'
+assert cleanText(' Two ThumBS DowN ')=='two thumbs down', 'spaces at start and end'
+assert cleanText(' This "1" wasn`t BAD!!!! ')=='this wasnt bad', 'non alpha chars'
+print('Success!') 
 
 
