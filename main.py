@@ -4,12 +4,12 @@ from functions import *
 
 train = open('training.txt')
 line = train.readline()
-
-print(cleanText(line))
-
-assert cleanText('I lauGHed I CrieD')=='i laughed i cried', 'upper case letters'
-assert cleanText(' Two ThumBS DowN ')=='two thumbs down', 'spaces at start and end'
-assert cleanText(' This "1" wasn`t BAD!!!! ')=='this wasnt bad', 'non alpha chars'
-print('Success!') 
-
-
+count = 0
+sentTot = 0
+line = train.readline()
+while line:
+	sentTot += getSentRate(line)
+	count = count + 1
+	line = train.readline() 
+avg = sentTot/count
+print("Average sentiment rating:", avg)
