@@ -5,11 +5,10 @@ from functions import *
 train = open('training.txt')
 line = train.readline()
 
-print(getSentRate(line))
+print(getRevText(line))
 
-assert getSentRate('4 I laughed, I cried, it was better than cats.') == 4
-'sentiment should be 4'
-assert getSentRate('0 Two thumbs down.') == 0, 'sentiment should be 0'
+assert getRevText('4 I laughed, I cried, it was better than cats.') == "I laughed, I cried, it was better than cats.", "Review Text should be 'I laughed, I cried, it was better than cats.'" == "I laughed, I cried, it was better than cats."
+assert getRevText('0 Two thumbs down.') == 'Two thumbs down.', "Review Text should be 'Two thumbs down.'"
 print("Success!") 
 
 

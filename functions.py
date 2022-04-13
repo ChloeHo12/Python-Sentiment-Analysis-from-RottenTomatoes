@@ -4,6 +4,6 @@ def getSentRate(reviewSR):
 	sentRate = int(reviewSR[0])
 	return sentRate
 
-def getRevRate(reviewRR):
-	reviewStr = (reviewRR[2:])
+def getRevText(reviewRT):
+	reviewStr = (reviewRT[2:])
 	return reviewStr
