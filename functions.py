@@ -1,5 +1,9 @@
 # chloe and heidi
 # Your functions go here.
-def getSentRate(review):
-	sentRate = int(review[0])
+def getSentRate(reviewSR):
+	sentRate = int(reviewSR[0])
 	return sentRate
+
+def getRevRate(reviewRR):
+	reviewStr = (reviewRR[2:])
+	return reviewStr
