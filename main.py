@@ -16,11 +16,17 @@ print("Average sentiment rating:", avg)
 
 train.close()
 
-epsilon = 0.0001
+print(wordSent('politics'))
 
-assert abs(wordSent('Fabulous') - 2.75) < epsilon, 'fabulous: wrong SR'
-assert abs(wordSent('boring') - 1.1428571428571428) < epsilon,'boring: wrong SR'
-assert abs(wordSent('love') - 2.574660633484163) < epsilon, 'love: wrong SR'
-assert abs(wordSent('hate') - 1.7954545454545454)< epsilon, 'hate: wrong SR'
-assert abs(wordSent('the') - 2.038604742308446) < epsilon, 'the: wrong SR'
+assert abs(wordSent('politics')) == 0, 'politics is not in review'
+assert abs(wordSent('python')) == 0, 'python is not in review'
+assert abs(wordSent('Computer')) == 0, 'Computer is not in review'
+assert abs(wordSent('Apple')) == 0, 'Apple is not in review'
+assert abs(wordSent('Youtube')) == 0, 'Youtube is not in review'
+assert abs(wordSent('Bag')) == 0, 'Bag is not in review'
+assert abs(wordSent('programming')) == 0, 'programming is not in review'
+assert abs(wordSent('science')) == 0, 'science is not in review'
+assert abs(wordSent('phone')) == 0, 'phone is not in review'
+assert abs(wordSent('physics')) == 0, 'physics is not in review'
+
 print('Success!')

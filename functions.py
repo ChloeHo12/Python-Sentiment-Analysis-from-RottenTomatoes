@@ -36,9 +36,13 @@ def wordSent(word):
 			wordCount += 1
 			sentRate = getSentRate(line)
 			sentTot += sentRate
+		else:
+			return sentTot
 		line = train.readline()
 	wordAvg = sentTot/wordCount
 	return wordAvg
+
+
 
 
 
