@@ -42,7 +42,18 @@ def wordSent(word):
 	wordAvg = sentTot/wordCount
 	return wordAvg
 
-
+def textSent(text):
+	sum = 0 
+	count = 0
+	for word in text.split():
+		wordSentRate = wordSent(word)
+		if wordSentRate:
+			count += 1
+			sum += wordSent(word)
+	if count == 0:
+		return sum
+	else:
+		return sum/count
 
 
 

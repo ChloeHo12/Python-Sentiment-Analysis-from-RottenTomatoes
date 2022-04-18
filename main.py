@@ -2,29 +2,25 @@
 # chloe and heidi
 from functions import *
 
-train = open('training.txt')
-line = train.readline()
-count = 0
-sentTot = 0
-line = train.readline()
-while line:
-	sentTot += getSentRate(line)
-	count = count + 1
-	line = train.readline() 
-avg = sentTot/count
-print("Average sentiment rating:", avg)
+userText = input('Enter the text that you want to know the sentiment rating >> ')
+userSent = textSent(userText)
+if userSent >= 2:
+	print("The sentiment rating is", userSent,". This is positive :)")
+else:
+	print("The sentiment rating is", userSent, ". This is negative :(")
 
-train.close()
+# 1. What are some phrases you tried where the program got the sentiment category right?
+	# love you: positive
+	# fabulous movie: positive
+	# this movie is great: positive
+	# i hate the movie: negative
+	# this is a bad movie: negative
+	# I wanted to fall asleep: negative
+# 2. What is one where it got it wrong?
+	# I wanted to love the movie but I did not: positive but should have been negative
+	# the movie is more interested in entertaining itself than in amusing us: positive but should have been negative
+	# i liked the popcorn but not the movie: positive but should have been negative
+# 3. Why does it interpret the sentiment category of certain phrases incorrectly?
+	# They may use positive words even though their rating is negative.
+	# Computer doesn't understand sarcasm or irony
 
-assert cleanText('I lauGHed I CrieD')=='i laughed i cried', 'upper case letters'
-assert cleanText(' Two ThumBS DowN ')=='two thumbs down', 'spaces at start and end'
-assert cleanText(' This "1" wasn`t BAD!!!! ')=='this wasnt bad', 'non alpha chars' 
-epsilon = 0.0001
-assert abs(wordSent('Fabulous') - 2.75) < epsilon, 'fabulous: wrong SR'
-assert abs(wordSent('boring') - 1.1428571428571428) < epsilon,'boring: wrong SR'
-assert abs(wordSent('love') - 2.574660633484163) < epsilon, 'love: wrong SR'
-assert abs(wordSent('hate') - 1.7954545454545454)< epsilon, 'hate: wrong SR'
-assert abs(wordSent('the') - 2.038604742308446) < epsilon, 'the: wrong SR'
-#commit for words that do not appear in training.txt
-assert (wordSent('biology')) == 0, 'biology: wrong SR'
-print('Success!') 
