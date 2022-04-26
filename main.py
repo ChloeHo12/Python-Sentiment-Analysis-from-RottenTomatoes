@@ -1,48 +1,23 @@
 # lab09
 # chloe and heidi
-
 from functions import *
 
-# #a
-# valid = open('validation.txt')
-# line = valid.readline()
-# print(getSentRate(line))
-# print(getRevText(line))
+userText = input('Enter the text that you want to know the sentiment rating >> ')
+userSent = textSent(userText)
+print(userSent)
+if userSent >= 2.31:
+	print("The sentiment rating is", userSent,". This is highly positive :):)")
+elif 2.19 <= userSent < 2.31:
+	print("The sentiment rating is", userSent,". This is positive :)")
+elif 1.8 <= userSent < 2.19:
+	print("The sentiment rating is", userSent,". This is neutral. :|")
+elif 1.6 <= userSent < 1.8:
+	print("The sentiment rating is", userSent,". This is negative :(.")
+else:
+	print("The sentiment rating is", userSent, ". This is highly negative :(:(")
 
-# #b
-# rev = getRevText(line)
-# #Computer's rating
-# print("Computer Sentiment Rating:", textSent(rev))
-# #Actual human rating: 1 (negative)
-# print("Human Sentiment Rating:", getSentRate(line))
-
-# #c
-# lineSentRate = textSent(line)
-# lineHumanRate = getSentRate(line)
-# sentError = abs(lineSentRate - lineHumanRate)
-# print("The error between computed rating and human rating:", sentError)
-
-#d + e
-valid = open('validation.txt')
-line = valid.readline()
-count = 0
-lineSentRate = 0
-lineHumanRate = 0
-errorTot = 0
-while line:
-	count += 1
-	lineSentRate = textSent(line)
-	lineHumanRate = getSentRate(line)
-	sentError = abs(lineSentRate-lineHumanRate)
-	errorTot += sentError
-	print("Review", count)
-	print("Computer Sentiment Rating:", lineSentRate)
-	print("Human Sentiment Rating:", lineHumanRate)
-	print("The error between computed rating and human rating:", sentError)
-	print("\n")
-	line = valid.readline()
-
-errorAvg = errorTot/count
-print("The error average:", errorAvg)
-print("Total error:", errorTot)
-
+assert 2.19 <= abs(textSent("fabulous movie")) < 2.31, "'fabulous movie' is positive"
+assert 1.8 <= abs(textSent("This movie is fine")) < 2.19, "'This movie is fine' is neutral"
+assert 1.6 <= abs(textSent("The movie is boring")) < 1.8, "'The movie is boring' is negative"
+assert abs(textSent("Terrible movie")) < 1.6, "'Terrible movie' is highly negative"
+print('Success')

@@ -1,19 +1,1 @@
 # Write your reflection here.
-
-1. From running your program with validation.txt, what are the following values?
-
-• number of lines examined: 101 lines
-• computer ratings’ total deviation from human ratings: 106.2852886668612
-• computer rating’s average deviation from human rating: 1.052329590761002
-
-
-2. For a relatively simple algorithm, the results of your B3 program might be surprisingly good. Based on modern experiences, however, we might expect that the computer could do even better.
-
-• What are some factors -- besides the one identified in the optional challenges above -- that you think limited the accuracy of the results?
-- some words would not have enough data (if they only appeared a few times in all of the reviews) to create an accurate rating.
-- Sometimes there would be sarcasm or irony in the ratings, which would use positive words to describe something negative or vice-versa.
-
-• What are some ways you think the algorithm could do better? 
-- We could  delete words that only show up a few times in the ratings since we would not have collected enough data from those words to calculate an accurate sentiment rating.
-- We could also take into account the frequency of negative versus positive words in a rating. For example, a rating could be mostly comprised of positive words, but have one very negative word which skews the average (almost like an outlier). In this case, more weight should be given to the positive words when calculating the average.
-- We could take the "same" word with different verb tenses or plural endings and give it all the same value to streamline it. For example, love, loved, loving would all have the same sentiment rating.
